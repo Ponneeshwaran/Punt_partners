@@ -69,6 +69,10 @@
                     textarea.style.fontVariant='inherit';
                 }
             });
+
+            document.getElementById('reset').addEventListener('click', function() {
+                document.getElementById('textarea').value = '';
+            });
         });
     </script>
 </body>
