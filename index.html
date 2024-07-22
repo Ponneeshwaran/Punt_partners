@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="head">
+        <h1>Text Editor</h1>
+    </div>
+    <div id="buttonrow">
+        <div style=" display:flex">
+            <h3>Font Family</h3>
+            <select id="fontfamily" size="1" style="border-radius: 8px;height: 50px;width: 100px;">
+                <option value="Arial" style="font-family:Arial;">Arial</option>
+                <option value="Courier New" style="font-family:'Courier New';">Courier New</option>
+                <option value="Georgia" style="font-family:Georgia;">Georgia</option>
+                <option value="Times New Roman" style="font-family:'Times New Roman';">Times New Roman</option>
+                <option value="Verdana" style="font-family:Verdana;">Verdana</option>
+            </select>
+        </div>
+        <div style="display: flex;">
+            <h3>Variant</h3>
+            <select id="variant" size="1" style="border-radius: 8px;height: 50px;width: 100px;">
+                <option value="Bold">Bold</option>
+                <option value="Normal">Normal</option>
+                <option value="smallcaps">smallcaps</option>
+                <option value="inherit">Inherit</option>
+            </select>
+        </div>
+        <div style="display: flex;">
+            <h3>Italic</h3>
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+              </label>
+        </div>
+    </div>
+    <div id="tarea">
+        <textarea id="textarea" rows="20" cols="100" placeholder="enter your text here">
+
+        </textarea>
+    </div>
+
+    <div id="buttoncontainer">
+        <button name="Reset" id="reset">Reset</button>
+        <button name="save" id="save">Save</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('fontfamily').addEventListener('change', function() {
+                var selectedFont=this.value;
+                document.getElementById('textarea').style.fontFamily=selectedFont;
+            });
+
+            document.getElementById('variant').addEventListener('change',function() {
+                var selectedVariant=this.value;
+                var textarea=document.getElementById('textarea');
+                if (selectedVariant==='Bold') {
+                    textarea.style.fontWeight='bold';
+                } else if (selectedVariant==='Normal') {
+                    textarea.style.fontWeight='normal';
+                } else if (selectedVariant==='smallcaps') {
+                    textarea.style.fontVariant='small-caps';
+                } else if (selectedVariant==='inherit') {
+                    textarea.style.fontVariant='inherit';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
